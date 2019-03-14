@@ -24,12 +24,13 @@ import com.alibaba.otter.canal.parse.exception.CanalParseException;
  * @version 1.0.0
  */
 public class BinLogFileQueue {
-
+    private static final Pattern BIN_LOG_FILE_NAME_PATTERN = Pattern.compile("\\d+$");
     private String              baseName       = "mysql-bin.";
     private List<File>          binlogs        = new ArrayList<File>();
     private File                directory;
     private ReentrantLock       lock           = new ReentrantLock();
     private Condition           nextCondition  = lock.newCondition();
+    @SuppressWarnings("PMD.AvoidUseTimerRule")
     private Timer               timer          = new Timer(true);
     private long                reloadInterval = 10 * 1000L;           // 10秒
     private CanalParseException exception      = null;
@@ -218,10 +219,8 @@ public class BinLogFileQueue {
     private List<File> listBinlogFiles() {
         List<File> files = new ArrayList<File>();
         files.addAll(FileUtils.listFiles(directory, new IOFileFilter() {
-
             public boolean accept(File file) {
-                Pattern pattern = Pattern.compile("\\d+$");
-                Matcher matcher = pattern.matcher(file.getName());
+                Matcher matcher = BIN_LOG_FILE_NAME_PATTERN.matcher(file.getName());
                 return file.getName().startsWith(baseName) && matcher.find();
             }
 

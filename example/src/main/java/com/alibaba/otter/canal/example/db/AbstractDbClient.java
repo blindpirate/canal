@@ -91,7 +91,7 @@ public abstract class AbstractDbClient extends CanalConnectorClient {
         CanalEntry.EventType eventType = rowChange.getEventType();
         CanalEntry.Header header = entry.getHeader();
         long executeTime = header.getExecuteTime();
-        long delayTime = new Date().getTime() - executeTime;
+        long delayTime = System.currentTimeMillis() - executeTime;
         String sql = rowChange.getSql();
 
         try {

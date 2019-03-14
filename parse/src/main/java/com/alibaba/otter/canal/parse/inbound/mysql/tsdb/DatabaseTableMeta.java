@@ -52,6 +52,7 @@ public class DatabaseTableMeta implements TableMetaTSDB {
     private static Logger                   logger           = LoggerFactory.getLogger(DatabaseTableMeta.class);
     private static Pattern                  pattern          = Pattern.compile("Duplicate entry '.*' for key '*'");
     private static Pattern                  h2Pattern        = Pattern.compile("Unique index or primary key violation");
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     private static ScheduledExecutorService scheduler        = Executors.newSingleThreadScheduledExecutor(new ThreadFactory() {
 
                                                                  @Override
@@ -408,8 +409,8 @@ public class DatabaseTableMeta implements TableMetaTSDB {
             Long binlogTimestamp = snapshotDO.getBinlogTimestamp();
 
             EntryPosition snapshotPosition = new EntryPosition(binlogFile,
-                binlogOffest == null ? 0l : binlogOffest,
-                binlogTimestamp == null ? 0l : binlogTimestamp,
+                binlogOffest == null ? 0L : binlogOffest,
+                binlogTimestamp == null ? 0L : binlogTimestamp,
                 Long.valueOf(binlogMasterId == null ? "-2" : binlogMasterId));
             // data存储为Map<String,String>，每个分库一套建表
             String sqlData = snapshotDO.getData();

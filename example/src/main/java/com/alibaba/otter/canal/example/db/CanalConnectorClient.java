@@ -274,7 +274,7 @@ public abstract class CanalConnectorClient extends AbstractCanalLifeCycle implem
             // 打印事务头信息，执行的线程id，事务耗时
             CanalEntry.Header header = entry.getHeader();
             long executeTime = header.getExecuteTime();
-            long delayTime = new Date().getTime() - executeTime;
+            long delayTime = System.currentTimeMillis() - executeTime;
             logger.info(transactionFormat,
                     new Object[]{"begin", begin.getTransactionId(), header.getLogfileName(),
                             String.valueOf(header.getLogfileOffset()),
@@ -293,7 +293,7 @@ public abstract class CanalConnectorClient extends AbstractCanalLifeCycle implem
             // 打印事务提交信息，事务id
             CanalEntry.Header header = entry.getHeader();
             long executeTime = header.getExecuteTime();
-            long delayTime = new Date().getTime() - executeTime;
+            long delayTime = System.currentTimeMillis() - executeTime;
 
             logger.info(transactionFormat,
                     new Object[]{"end", end.getTransactionId(), header.getLogfileName(),

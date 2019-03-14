@@ -44,6 +44,7 @@ import com.alibaba.otter.canal.sink.exception.CanalSinkException;
  * @author jianghang 2013-1-20 下午08:10:25
  * @version 1.0.0
  */
+@SuppressWarnings("PMD.AvoidUseTimerRule")
 public abstract class AbstractEventParser<EVENT> extends AbstractCanalLifeCycle implements CanalEventParser<EVENT> {
 
     protected final Logger                           logger                     = LoggerFactory.getLogger(this.getClass());

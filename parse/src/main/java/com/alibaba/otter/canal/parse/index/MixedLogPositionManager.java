@@ -23,6 +23,7 @@ public class MixedLogPositionManager extends AbstractLogPositionManager {
 
     private final ExecutorService             executor;
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     public MixedLogPositionManager(ZkClientx zkClient){
         if (zkClient == null) {
             throw new NullPointerException("null zkClient");
@@ -70,6 +71,7 @@ public class MixedLogPositionManager extends AbstractLogPositionManager {
         return logPosition;
     }
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     @Override
     public void persistLogPosition(final String destination, final LogPosition logPosition) throws CanalParseException {
         memoryLogPositionManager.persistLogPosition(destination, logPosition);

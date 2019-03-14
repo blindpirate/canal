@@ -54,6 +54,7 @@ public class FileMixedMetaManager extends MemoryMetaManager implements CanalMeta
     private long                     period       = 1000;                                               // 单位ms
     private Set<ClientIdentity>      updateCursorTasks;
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     public void start() {
         super.start();
         Assert.notNull(dataDir);

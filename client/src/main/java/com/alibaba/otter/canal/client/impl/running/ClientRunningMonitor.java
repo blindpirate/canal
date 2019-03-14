@@ -40,6 +40,7 @@ public class ClientRunningMonitor extends AbstractCanalLifeCycle {
     private BooleanMutex               mutex        = new BooleanMutex(false);
     private volatile boolean           release      = false;
     private volatile ClientRunningData activeData;
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     private ScheduledExecutorService   delayExector = Executors.newScheduledThreadPool(1);
     private ClientRunningListener      listener;
     private int                        delayTime    = 5;

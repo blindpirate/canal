@@ -174,7 +174,7 @@ public class AbstractCanalClientTest {
     protected void printEntry(List<Entry> entrys) {
         for (Entry entry : entrys) {
             long executeTime = entry.getHeader().getExecuteTime();
-            long delayTime = new Date().getTime() - executeTime;
+            long delayTime = System.currentTimeMillis() - executeTime;
             Date date = new Date(entry.getHeader().getExecuteTime());
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

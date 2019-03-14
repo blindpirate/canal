@@ -54,6 +54,7 @@ public class FileMixedLogPositionManager extends AbstractLogPositionManager {
     private long                     period;
     private Set<String>              persistTasks;
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     public FileMixedLogPositionManager(File dataDir, long period, MemoryLogPositionManager memoryLogPositionManager){
         if (dataDir == null) {
             throw new NullPointerException("null dataDir");

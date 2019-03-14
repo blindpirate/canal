@@ -28,7 +28,7 @@ public class MixedMetaManager extends MemoryMetaManager implements CanalMetaMana
     @SuppressWarnings("serial")
     private final Position       nullCursor = new Position() {
                                             };
-
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     public void start() {
         super.start();
         Assert.notNull(zooKeeperMetaManager);

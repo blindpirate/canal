@@ -81,6 +81,7 @@ public class MysqlMultiStageCoprocessor extends AbstractCanalLifeCycle implement
         this.destination = destination;
     }
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     @Override
     public void start() {
         super.start();

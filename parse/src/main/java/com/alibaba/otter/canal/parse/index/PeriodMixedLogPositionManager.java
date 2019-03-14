@@ -33,6 +33,7 @@ public class PeriodMixedLogPositionManager extends AbstractLogPositionManager {
     private final LogPosition           nullPosition = new LogPosition() {
                                                      };
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     public PeriodMixedLogPositionManager(MemoryLogPositionManager memoryLogPositionManager,
                                          ZooKeeperLogPositionManager zooKeeperLogPositionManager, long period){
         if (memoryLogPositionManager == null) {

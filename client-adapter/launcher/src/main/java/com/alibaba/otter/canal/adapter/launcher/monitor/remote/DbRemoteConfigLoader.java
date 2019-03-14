@@ -38,6 +38,7 @@ public class DbRemoteConfigLoader implements RemoteConfigLoader {
     private static volatile long     currentConfigTimestamp = 0;
     private Map<String, ConfigItem>  remoteAdapterConfigs   = new MapMaker().makeMap();
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     private ScheduledExecutorService executor               = Executors.newScheduledThreadPool(2,
         new NamedThreadFactory("remote-adapter-config-scan"));
 

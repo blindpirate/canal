@@ -53,6 +53,7 @@ public class CanalServerWithNetty extends AbstractCanalLifeCycle implements Cana
         return SingletonHolder.CANAL_SERVER_WITH_NETTY;
     }
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     public void start() {
         super.start();
 

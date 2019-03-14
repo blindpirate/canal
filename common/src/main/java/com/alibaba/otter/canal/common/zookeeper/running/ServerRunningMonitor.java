@@ -38,6 +38,8 @@ public class ServerRunningMonitor extends AbstractCanalLifeCycle {
     private ServerRunningData          serverData;
     // 当前实际运行的节点状态信息
     private volatile ServerRunningData activeData;
+
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     private ScheduledExecutorService   delayExector = Executors.newScheduledThreadPool(1);
     private int                        delayTime    = 5;
     private ServerRunningListener      listener;

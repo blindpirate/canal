@@ -45,6 +45,7 @@ public class SpringInstanceConfigMonitor extends AbstractCanalLifeCycle implemen
                                                                           return new InstanceConfigFiles(destination);
                                                                       }
                                                                   });
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     private ScheduledExecutorService         executor             = Executors.newScheduledThreadPool(1,
                                                                       new NamedThreadFactory("canal-instance-scan"));
 

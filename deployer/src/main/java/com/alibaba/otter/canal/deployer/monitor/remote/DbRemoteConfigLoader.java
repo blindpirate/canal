@@ -29,6 +29,7 @@ import com.google.common.collect.MapMaker;
  * @author rewerma 2019-01-25 下午05:20:16
  * @version 1.0.0
  */
+@SuppressWarnings("PMD.ThreadPoolCreationRule")
 public class DbRemoteConfigLoader implements RemoteConfigLoader {
 
     private static final Logger      logger                 = LoggerFactory.getLogger(DbRemoteConfigLoader.class);

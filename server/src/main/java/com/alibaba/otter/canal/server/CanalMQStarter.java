@@ -41,6 +41,7 @@ public class CanalMQStarter {
         this.canalMQProducer = canalMQProducer;
     }
 
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     public synchronized void start(MQProperties properties) {
         try {
             if (running) {

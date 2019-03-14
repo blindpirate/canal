@@ -30,6 +30,7 @@ public class RdsBinlogEventParserProxy extends MysqlEventParser {
     private int                       batchFileSize             = 4;                          // 最多下载的binlog文件数量
 
     private RdsLocalBinlogEventParser rdsLocalBinlogEventParser = null;
+    @SuppressWarnings("PMD.ThreadPoolCreationRule")
     private ExecutorService           executorService           = Executors.newSingleThreadExecutor(new ThreadFactory() {
 
                                                                     @Override
